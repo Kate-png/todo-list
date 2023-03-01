@@ -1,20 +1,15 @@
-import React from 'react';
 import './App.css';
-import InputLine from './components/InputLine/InputLine'
+import InputLine from './components/InputLine/InputLine';
 
 function App() {
 
-  function addValue(title:string){
-    console.log(title)
-  }
   return (
     <div className="App">
-      <header className="App-header">
-       Hello react!
-       <InputLine onCreate={addValue}/>
+      <header>
       </header>
-      <div>
-      
+      <div className='body'>
+        <h2>Todo list</h2>
+      <InputLine/>
       </div>
     </div>
   );
