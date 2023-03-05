@@ -1,17 +1,13 @@
 import './App.css';
-import InputLine from './components/InputLine/InputLine';
+import MainTodoList from './pages/MainTodoList';
 
 function App() {
 
   return (
-    <div className="App">
-      <header>
-      </header>
       <div className='body'>
         <h2>Todo list</h2>
-      <InputLine/>
+      <MainTodoList/>
       </div>
-    </div>
   );
 }
 
