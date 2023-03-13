@@ -1,11 +1,14 @@
 import React, {useState} from "react";
 import './InputLine.css'
 
+interface InputLineProps {
+    addTodo: (value:string) => void
+}
 
-export default function InputLine({addTodo}:any){
+export default function InputLine({addTodo}:InputLineProps){
     const [value, setValue] = useState('');
 
-    let submitHandler = (event:React.FormEvent<HTMLFormElement>) => {
+    const submitHandler = (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
         if(value.trim()) {
@@ -14,9 +17,9 @@ export default function InputLine({addTodo}:any){
             }
         }
     
-    let onChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
-    }
+        }
          
             return(
                 <form onSubmit={submitHandler}>
@@ -24,13 +27,11 @@ export default function InputLine({addTodo}:any){
                         type='text'
                         className="sub-input" 
                         value={value} onChange = {onChangeInput}/>
-
                     <button 
                         type='submit' 
                         className="sub-button">
                             Add
-                    </button>
-                        
+                    </button>       
                 </form>
  )
 }

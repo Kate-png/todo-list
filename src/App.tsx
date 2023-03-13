@@ -1,7 +1,17 @@
+import React,{useState} from 'react';
 import './App.css';
+import './Normalize.css';
 import MainTodoList from './pages/MainTodoList';
 
 export default function App() {
+
+  const [saveList, setSaveList] = useState<Array<string>>([]);
+
+  const addTodo = (value:string) => {
+    setSaveList(prewState => {
+        return [...prewState, value]
+        })    
+}
 
   return (
       <div className='body'>
@@ -9,7 +19,7 @@ export default function App() {
           Todo list
         </h2>
 
-      <MainTodoList/>
+      <MainTodoList saveList={saveList} addTodo={addTodo}/>
       
       </div>
   );
