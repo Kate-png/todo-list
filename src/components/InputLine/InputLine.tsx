@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import './InputLine.css'
+import '../../interface'
+import {InputLineProps} from "../../interface";
 
-interface InputLineProps {
-    addTodo: (value:string) => void
-}
 
-export default function InputLine({addTodo}:InputLineProps){
+export default function InputLine({addTodo}:InputLineProps) {
     const [value, setValue] = useState('');
 
     const submitHandler = (event:React.FormEvent<HTMLFormElement>) => {
@@ -23,15 +22,15 @@ export default function InputLine({addTodo}:InputLineProps){
          
             return(
                 <form onSubmit={submitHandler}>
-                    <input 
+                    <input
                         type='text'
-                        className="sub-input" 
+                        className="sub-input"
                         value={value} onChange = {onChangeInput}/>
                     <button 
                         type='submit' 
                         className="sub-button">
                             Add
-                    </button>       
+                    </button>
                 </form>
  )
 }
