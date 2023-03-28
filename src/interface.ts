@@ -1,14 +1,16 @@
 export interface InputLineProps {
-    addTodo: (value:string) => void
-}
-
-export interface MainTodoListProps {
-    saveList:Array<TodoValue>,
     addTodo: (value:string) => void,
-    setList: any
 }
 
-export interface TodoValue {
+export interface TodoValueType {
     id: string,
     text: string,
+}
+
+export interface RemoveTodoType {
+    removeTodo: (value:number) => void,
+}
+
+export interface EditTodoType {
+    editTodo: (value:number) => void,
 }
