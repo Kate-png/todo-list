@@ -25,7 +25,7 @@ export default function MainTodoList(){
     return (
         <>
             <InputLine addTodo={addTodo}/>
-            <TodoList saveList={saveList} removeTodo={removeTodo} editTodo/>
+            <TodoList saveList={saveList} removeTodo={removeTodo} editTodo = {editTodo}/>
         </>
     )
 }

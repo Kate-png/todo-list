@@ -3,7 +3,6 @@ import './InputLine.css'
 import '../../interface'
 import {InputLineProps} from "../../interface";
 
-
 export default function InputLine({addTodo}:InputLineProps) {
     const [value, setValue] = useState('');
 
