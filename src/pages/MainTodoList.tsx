@@ -1,8 +1,12 @@
 import {useState} from "react";
 import InputLine from "../components/InputLine/InputLine";
 import './MainTodoList.css'
-import {TodoValueType} from "../interface";
 import TodoList from "../components/TodoList/TodoList";
+
+interface editTodoProps {
+    setIsEditing:any,
+    isEditing:boolean,    
+}
 
 export default function MainTodoList(){
 
@@ -18,14 +22,18 @@ export default function MainTodoList(){
         setSaveList([...saveList.slice(0, index), ...saveList.slice(index + 1)])
     }
 
-    const editTodo = (index:number) => {
-        console.log(index)
+    const editTodo = ({setIsEditing,isEditing}:editTodoProps) => {
+        setIsEditing(!isEditing)
     }
     
     return (
         <>
-            <InputLine addTodo={addTodo}/>
-            <TodoList saveList={saveList} removeTodo={removeTodo} editTodo = {editTodo}/>
+            <InputLine 
+                addTodo={addTodo}/>
+            <TodoList 
+                saveList={saveList} 
+                removeTodo={removeTodo} 
+                editTodo = {editTodo}/>
         </>
     )
 }
