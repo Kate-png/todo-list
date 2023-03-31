@@ -29,25 +29,29 @@ export default function SingleTodo({index,singleTodo,removeTodo,editTodo}:Single
                     src={cross} 
                     alt=""
                     className="icons" 
-                    onClick={() => removeTodo(index)}/>
+                    onClick={() => removeTodo(index)}
+                    />
                 <img 
                     src={pencil} 
                     alt="" className="icons" 
-                    onClick={() => editTodo({setIsEditing,isEditing})}/>
+                    onClick={() => editTodo({setIsEditing,isEditing})}
+                    />
             </div>
         )
     }
     else return(
-        <div>
+        <div className="todo-item">
             <input 
                 type='text'
-                className="sub-input"
+                className="item-input"
                 value={change}
-                onChange={onEditingTodo}/>
+                onChange={onEditingTodo}
+                />
             <ButtonTodo
                 onClick={() => editTodo({setIsEditing,isEditing})}
-                className="sub-button"
-                children={'Edit'}/>
+                className="item-button"
+                children={'Edit'}
+                />
         </div>
     )
     

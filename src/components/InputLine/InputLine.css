@@ -1,5 +1,5 @@
 .sub-button{
-    background-color: #656e8a;
+    background-color: #292828;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 1000;
@@ -7,6 +7,7 @@
     display: inline-block;
     border-radius: 10px;
     transition: all .2s;
+    color:white;
 }
 
 .sub-button:active{
