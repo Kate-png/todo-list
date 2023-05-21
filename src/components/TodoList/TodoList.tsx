@@ -16,7 +16,8 @@ export default function TodoList({saveList, removeTodo, editTodo}:TodoDolistProp
                             index={index} 
                             singleTodo={element} 
                             removeTodo={removeTodo} 
-                            editTodo={editTodo}/>
+                            editTodo={editTodo}
+                        />
                     </div>
                     
                 )

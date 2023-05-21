@@ -4,8 +4,8 @@ import './MainTodoList.css'
 import TodoList from "../components/TodoList/TodoList";
 
 interface editTodoProps {
-    setIsEditing:any,
-    isEditing:boolean,    
+    index:number,
+    newTodoText:string,    
 }
 
 export default function MainTodoList(){
@@ -14,7 +14,7 @@ export default function MainTodoList(){
 
     const addTodo = (value:string) => {
         setSaveList(prewState => {
-            return [...prewState, {id: (Math.random() * 900 + 100).toString(),text:value}]
+            return [...prewState, {id: (Math.floor(Math.random() * (100))).toString(),text:value}]
         })
     }
 
@@ -22,18 +22,20 @@ export default function MainTodoList(){
         setSaveList([...saveList.slice(0, index), ...saveList.slice(index + 1)])
     }
 
-    const editTodo = ({setIsEditing,isEditing}:editTodoProps) => {
-        setIsEditing(!isEditing)
+    const editTodo = ({index,newTodoText}:editTodoProps) => {
+       
     }
     
     return (
         <>
             <InputLine 
-                addTodo={addTodo}/>
+                addTodo={addTodo}
+            />
             <TodoList 
                 saveList={saveList} 
                 removeTodo={removeTodo} 
-                editTodo = {editTodo}/>
+                editTodo = {editTodo}
+            />
         </>
     )
 }

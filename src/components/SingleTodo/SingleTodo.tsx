@@ -12,14 +12,22 @@ interface SingleTodoDoProps {
 }
 
 export default function SingleTodo({index,singleTodo,removeTodo,editTodo}:SingleTodoDoProps) {
-
-    const onEditingTodo = (event:React.ChangeEvent<HTMLInputElement>) => {
-        setChange(event.target.value)
-        singleTodo.text = change
-    }
     
     const [isEditing, setIsEditing] = useState<boolean>(true);
-    const [change,setChange] = useState<string>(singleTodo.text)
+    const [newText,setNewText] = useState<string>(singleTodo.text);
+
+    const onEditingTodo = (event:React.ChangeEvent<HTMLInputElement>) => {
+        setNewText(event.target.value)
+        singleTodo.text = newText
+    }
+    
+    const handlePencilClick = () => {
+        setIsEditing(false);
+    }
+
+    const handleSaveClick = () => {
+        setIsEditing(true);
+    }
     
     if(isEditing){
         return(
@@ -33,8 +41,9 @@ export default function SingleTodo({index,singleTodo,removeTodo,editTodo}:Single
                     />
                 <img 
                     src={pencil} 
-                    alt="" className="icons" 
-                    onClick={() => editTodo({setIsEditing,isEditing})}
+                    alt="" 
+                    className="icons" 
+                    onClick={() => handlePencilClick()}
                     />
             </div>
         )
@@ -44,11 +53,11 @@ export default function SingleTodo({index,singleTodo,removeTodo,editTodo}:Single
             <input 
                 type='text'
                 className="item-input"
-                value={change}
+                value={newText}
                 onChange={onEditingTodo}
                 />
             <ButtonTodo
-                onClick={() => editTodo({setIsEditing,isEditing})}
+                onClick={() => handleSaveClick()}
                 className="item-button"
                 children={'Edit'}
                 />
